@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include core_head.html %}
+  </head>
+  
+  <style>
+    {% include css/core.css %}
+  </style>
+
+  <body style='visibility:hidden;'>
+  <div id=body_div style='overflow-x:hidden;'>
+
+    <!-- Main Content -->
+    <main role="main">
+      {{ content }}
+    </main>
+    
+    <!-- Autofilled footer -->
+    {% include footer.html %} 
+    
+  </div>
+  </body>
+
+  <html-foot>
+    {%include core_foot.html%}
+  </html-foot>
+
+</html>

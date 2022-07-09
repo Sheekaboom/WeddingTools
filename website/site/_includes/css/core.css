@@ -1,0 +1,27 @@
+html{
+    --bg-color:#FFFF;
+    background-color:var(--bg-color);
+}
+
+main{
+    margin:5%;
+    display:grid;
+    align-items:center;
+    justify-content:center;
+    grid-template-areas:
+        'header' 
+        'title-phrase'
+        'input'
+        'footer';
+    grid-template-columns: 100%;
+    grid-row-gap:20px;
+}
+
+#title_phrase{
+    font-style:italic;
+    grid-area: title-phrase;
+}
+
+#ticket_info{
+    grid-area: input;
+}
