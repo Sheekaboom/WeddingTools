@@ -5,3 +5,45 @@ title: Sit
 
 ## This is a header
 This is the seating chart
+
+<script type="module">
+    import {Autocomplete} from '/js/autocomplete.js';
+    import seating_data from '/sit/data/sit_data.json' assert {type: 'json'};
+
+    var input = document.querySelector('#lname');
+    var name_list = document.querySelector('#name_list');
+    var name_temp = name_list.getElementsByTagName('template')[0];
+    var table_number = document.querySelector('#table_number');
+    var ac = new Autocomplete(seating_data);
+
+    function set_table_number(e) {
+        var person_data = seating_data[e.target.innerText];
+        table_number.innerText = person_data['table'].toString();
+    }
+
+    function autocomplete_seating() {
+        var matches = ac.query(input.value);
+        name_list.innerHTML = '';
+        for (let m in matches) {
+            var name_item = document.createElement('li');
+            name_item.addEventListener('click', set_table_number);
+            name_item.innerText = m
+            name_list.appendChild(name_item);
+        }
+    }
+    
+    input.addEventListener('input',autocomplete_seating);
+</script>
+
+<form>
+    <!--label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br-->
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname">
+</form>
+
+<ul id="name_list">
+    <template><li style=".person_select"></li></template>
+</ul>
+
+<div id="table_number" style="font-size: xx-large;"></div>

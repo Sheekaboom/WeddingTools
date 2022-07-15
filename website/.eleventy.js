@@ -1,6 +1,8 @@
 module.exports = function(eleventyConfig) {
 
 
+    eleventyConfig.addPassthroughCopy("site/js");
+
     eleventyConfig.addLayoutAlias('default', 'layouts/default.html');
 
     return {
