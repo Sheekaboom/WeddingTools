@@ -39,7 +39,7 @@ Take any seat at your table - you won't be in it for long!
     input.addEventListener('input',autocomplete_seating);
 </script>
 
-<form>
+<form onsubmit="return false">
     <!--label for="fname">First name:</label><br>
     <input type="text" id="fname" name="fname"><br-->
     <!--label for="lname">Name</label><br-->
