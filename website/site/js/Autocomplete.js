@@ -23,7 +23,7 @@ function load_json_data(file_name) {
 
 class Autocomplete {
 
-    max_length = 5;
+    max_count = 2;
     case_sensitive = false;
 
     constructor (search_data) {

@@ -3,8 +3,11 @@ layout: default
 title: Sit
 ---
 
-## This is a header
-This is the seating chart
+# hey party people !
+
+Enter your name to find your table number. If you're unsure you're at the right table, the table markers have the names of everyone at that table. 
+
+Take any seat at your table - you won't be in it for long!
 
 <script type="module">
     import {Autocomplete} from '/js/autocomplete.js';
@@ -27,6 +30,7 @@ This is the seating chart
         for (let m in matches) {
             var name_item = document.createElement('li');
             name_item.addEventListener('click', set_table_number);
+            name_item.setAttribute("class",".name_item");
             name_item.innerText = m
             name_list.appendChild(name_item);
         }
@@ -38,9 +42,11 @@ This is the seating chart
 <form>
     <!--label for="fname">First name:</label><br>
     <input type="text" id="fname" name="fname"><br-->
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname">
+    <!--label for="lname">Name</label><br-->
+    <input type="text" id="lname" name="lname" placeholder='Name'>
 </form>
+
+<div id='name_select_info'>select your name from the list:</div>
 
 <ul id="name_list">
     <template><li style=".person_select"></li></template>
