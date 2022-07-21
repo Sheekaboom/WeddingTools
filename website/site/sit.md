@@ -17,7 +17,7 @@ Take any seat at your table - you won't be in it for long!
 
 <script type="module">
     import {Autocomplete} from '/js/autocomplete.js';
-    import seating_data from '/data/sit_data.json' assert {type: 'json'};
+    //import seating_data from '/data/sit_data.json' assert {type: 'json'};
 
     var input = document.querySelector('#lname');
     var name_list = document.querySelector('#name_list');
@@ -26,7 +26,6 @@ Take any seat at your table - you won't be in it for long!
     var table_info   = document.querySelector('#table_info');
     var table_exit   = document.querySelector('#table_info_exit');
     var html = document.querySelector('html');
-    var ac = new Autocomplete(seating_data);
 
     function hide_table_info(e) {
         html.classList.remove('fade_page');
@@ -40,26 +39,30 @@ Take any seat at your table - you won't be in it for long!
         table_exit.classList.add('show');
     }
 
-    function set_table_number(e) {
-        var person_data = seating_data[e.target.innerText];
-        table_number.innerText = person_data['table'].toString();
-        // now fade the background and show the table_info
-        show_table_info();
-    }
-
-    function autocomplete_seating() {
-        var matches = ac.query(input.value);
-        name_list.innerHTML = '';
-        for (let m in matches) {
-            var name_item = document.createElement('li');
-            name_item.addEventListener('click', set_table_number);
-            name_item.setAttribute("class",".name_item");
-            name_item.innerText = m
-            name_list.appendChild(name_item);
+    var ac;
+    fetch('/data/sit_data.json').then(response => response.json()).then(seating_data => {
+        ac = new Autocomplete(seating_data);
+        function autocomplete_seating() {
+            var matches = ac.query(input.value);
+            name_list.innerHTML = '';
+            for (let m in matches) {
+                var name_item = document.createElement('li');
+                name_item.addEventListener('click', set_table_number);
+                name_item.setAttribute("class",".name_item");
+                name_item.innerText = m
+                name_list.appendChild(name_item);
+            }
         }
-    }
+        input.addEventListener('input',autocomplete_seating);
+
+        function set_table_number(e) {
+            var person_data = seating_data[e.target.innerText];
+            table_number.innerText = person_data['table'].toString();
+            // now fade the background and show the table_info
+            show_table_info();
+        }
+    });
     
-    input.addEventListener('input',autocomplete_seating);
     table_exit.addEventListener('click', hide_table_info);
 </script>
 
