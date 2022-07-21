@@ -1,0 +1,92 @@
+.fade_page::after {
+    content: "";
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:var(--bg-color);
+    opacity: 0.75;
+    width:100%;
+    height:100%;
+}
+
+.fade_page {
+    z-index: 4;
+}
+
+
+input[type=text]{
+    width:min(350px, 70%);
+    background-color: var(--bg-color);
+    color:#fcfbf1;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    font-size: 30px;
+}
+
+input[type=text]::placeholder{
+    color: var(--border-color); 
+    opacity: .5;
+}
+
+#name_select_info{
+    font-family:'Oooh Baby'; font-size: 25px;
+}
+
+#name_list{
+    width: 60%;
+    list-style-type:none;
+    padding: 5px;
+}
+#name_list li{
+    font-size: 30px;
+    border-bottom: 1px solid #CEA190;
+    padding: 5px;
+    width: min(300px, 100%);
+    cursor: pointer;
+}
+
+#disco_ball {
+    position:absolute;
+    top:0;
+    right:0;
+    width:30%;
+    height:auto;
+}
+
+#table_info{
+    display:none;
+    position:absolute;
+    top:25%;
+    width:50%;
+    height:30%;
+    padding:15px;
+    left:calc(25% - 15px);
+    font-size:24pt; 
+}
+#table_info.show{
+    display:block;
+    z-index:5;
+    background-color: var(--bg-color);
+    border:2px solid var(--border-color);
+    border-radius: 10px;
+    text-align: center;
+}
+#table_number{
+    padding-top:10px;
+    font-size: 64pt;
+}
+#table_info_exit{
+    display:none;
+    height:0;
+    color:var(--text-color);
+    cursor:pointer;
+}
+#table_info_exit.show{
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    font-size:32pt;
+    padding-left: 10px;
+    z-index: 5;
+}

@@ -1,5 +1,7 @@
 html{
-    --bg-color:#9F5440;
+    --bg-color: #9f5440;
+    --border-color: #e3c6af;
+    --text-color:#fcfbf1;
     background-color:var(--bg-color);
     color: #fcfbf1;
     font-family: 'Pontano Sans';
@@ -7,34 +9,6 @@ html{
 
 h1{
     font-family:'Oooh Baby'; font-size: 44px;
-}
-
-input[type=text]{
-    width: 50%;
-    background-color: #9f5440;
-    color:#fcfbf1;
-    border: none;
-    border-bottom: 2px solid #e3c6af;
-    font-size: 30px;
-}
-
-input[type=text]::placeholder{
-    color: #e3c6af; opacity: .5;
-}
-
-#name_select_info{
-    font-family:'Oooh Baby'; font-size: 25px;
-}
-
-#name_list{
-    width: 50%;
-    list-style-type:none;
-    padding: 5px;
-}
-#name_list li{
-    font-size: 30px;
-    border-bottom: 2px solid #CEA190;
-    padding: 5px;
 }
 
 main{

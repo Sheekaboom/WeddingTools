@@ -3,6 +3,12 @@ layout: default
 title: Sit
 ---
 
+<style>
+{% include 'css/sit.css' %}
+</style>
+
+<img src="/img/disco_ball_scaled.gif" id='disco_ball' alt="Disco Ball">
+
 # hey party people !
 
 Enter your name to find your table number. If you're unsure you're at the right table, the table markers have the names of everyone at that table. 
@@ -17,11 +23,28 @@ Take any seat at your table - you won't be in it for long!
     var name_list = document.querySelector('#name_list');
     var name_temp = name_list.getElementsByTagName('template')[0];
     var table_number = document.querySelector('#table_number');
+    var table_info   = document.querySelector('#table_info');
+    var table_exit   = document.querySelector('#table_info_exit');
+    var html = document.querySelector('html');
     var ac = new Autocomplete(seating_data);
+
+    function hide_table_info(e) {
+        html.classList.remove('fade_page');
+        table_info.classList.remove('show');
+        table_exit.classList.remove('show');
+    }
+
+    function show_table_info(e) {
+        html.classList.add('fade_page');
+        table_info.classList.add('show');
+        table_exit.classList.add('show');
+    }
 
     function set_table_number(e) {
         var person_data = seating_data[e.target.innerText];
         table_number.innerText = person_data['table'].toString();
+        // now fade the background and show the table_info
+        show_table_info();
     }
 
     function autocomplete_seating() {
@@ -37,6 +60,7 @@ Take any seat at your table - you won't be in it for long!
     }
     
     input.addEventListener('input',autocomplete_seating);
+    table_exit.addEventListener('click', hide_table_info);
 </script>
 
 <form onsubmit="return false">
@@ -52,4 +76,8 @@ Take any seat at your table - you won't be in it for long!
     <template><li style=".person_select"></li></template>
 </ul>
 
-<div id="table_number" style="font-size: xx-large;"></div>
+<div id="table_info_exit">✕</div>
+<div id="table_info">
+Your table number is:
+<div id="table_number"></div>
+</div>
