@@ -24,3 +24,13 @@ main{
     grid-template-columns: 100%;
     grid-row-gap:20px;
 }
+
+a {
+    padding: 15px;
+    border: 2px solid var(--border-color);
+    font-size:30px;
+    color:var(--text-color);
+    width: min(300px, 100%);
+    text-decoration:none;
+    text-align:center;
+}
