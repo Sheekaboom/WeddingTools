@@ -44,13 +44,15 @@ Take any seat at your table - you won't be in it for long!
         ac = new Autocomplete(seating_data);
         function autocomplete_seating() {
             var matches = ac.query(input.value);
-            name_list.innerHTML = '';
-            for (let m in matches) {
-                var name_item = document.createElement('li');
-                name_item.addEventListener('click', set_table_number);
-                name_item.setAttribute("class",".name_item");
-                name_item.innerText = m
-                name_list.appendChild(name_item);
+            if(Object.keys(matches).length != 0) { // if we have no values, don't delete the old ones
+                name_list.innerHTML = '';
+                for (let m in matches) {
+                    var name_item = document.createElement('li');
+                    name_item.addEventListener('click', set_table_number);
+                    name_item.setAttribute("class",".name_item");
+                    name_item.innerText = m
+                    name_list.appendChild(name_item);
+                }
             }
         }
         input.addEventListener('input',autocomplete_seating);

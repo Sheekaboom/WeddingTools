@@ -9,6 +9,7 @@
 
 import pandas as pd
 import json
+import numpy as np
 
 def csv_to_table_dict(csv_path:str, rename:dict={'table number':'table'}, out_cols:list=['table'], **kwargs):
     ''' load a csv and change it to a json file in the correct format'''
@@ -43,14 +44,14 @@ if __name__=='__main__':
     json_data = csv_to_table_dict(csv_path)
     
     # replace names
-    rep_vals = {'Head Table': "Head"}
+    rep_vals = {np.nan:"?"}
     for k,v in json_data.items():
         if v['table'] in rep_vals.keys():
             json_data[k]['table'] = rep_vals[v['table']]
             
     # and save out
     with open(out_path, "w+") as fp:
-        json.dump(json_data,fp)
+        json.dump(json_data,fp, indent=4)
     
     
     

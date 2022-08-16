@@ -58,7 +58,7 @@ input[type=text]::placeholder{
     position:absolute;
     top:25%;
     width:50%;
-    height:30%;
+    height:auto;
     padding:15px;
     left:calc(25% - 15px);
     font-size:24pt; 
