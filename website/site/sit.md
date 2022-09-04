@@ -37,6 +37,7 @@ Take any seat at your table - you won't be in it for long!
         html.classList.add('fade_page');
         table_info.classList.add('show');
         table_exit.classList.add('show');
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
 
     var ac;
@@ -53,7 +54,7 @@ Take any seat at your table - you won't be in it for long!
                     name_item.innerText = m
                     name_list.appendChild(name_item);
                 }
-                input.scrollIntoView(true,{behavior:"smooth"});
+                input.scrollIntoView(true,{behavior:"auto"});
             }
         }
         input.addEventListener('input',autocomplete_seating);
