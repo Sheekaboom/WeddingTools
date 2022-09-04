@@ -1,6 +1,6 @@
 .fade_page::after {
     content: "";
-    position:absolute;
+    position:fixed;
     top:0;
     left:0;
     background-color:var(--bg-color);
@@ -55,7 +55,7 @@ input[type=text]::placeholder{
 
 #table_info{
     display:none;
-    position:absolute;
+    position:fixed;
     top:25%;
     width:50%;
     height:auto;
@@ -83,7 +83,7 @@ input[type=text]::placeholder{
 }
 #table_info_exit.show{
     display:block;
-    position:absolute;
+    position:fixed;
     top:0;
     left:0;
     font-size:32pt;
