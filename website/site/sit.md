@@ -53,6 +53,7 @@ Take any seat at your table - you won't be in it for long!
                     name_item.innerText = m
                     name_list.appendChild(name_item);
                 }
+                input.scrollIntoView(true,{behavior:"smooth"});
             }
         }
         input.addEventListener('input',autocomplete_seating);
