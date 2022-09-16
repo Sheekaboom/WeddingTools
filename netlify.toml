@@ -2,3 +2,9 @@
   base = "website/"
   publish = "_site"
   command = "eleventy"
+
+[[redirects]]
+  from = "/drink"
+  to = "/bar_menu.pdf"
+  force = true
+  query = {}
