@@ -5,6 +5,6 @@
 
 [[redirects]]
   from = "/drink"
-  to = "/bar_menu.pdf"
+  to = "/data/bar_menu.pdf"
   force = true
   query = {}
